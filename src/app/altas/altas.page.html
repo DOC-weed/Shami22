@@ -1,0 +1,65 @@
+<ion-app>
+
+
+    <div class="ion-page" >
+        <ion-header>
+            <ion-toolbar color="secondary">
+                <ion-buttons slot="start">
+                    <ion-back-button defaultHref="/"></ion-back-button>
+                </ion-buttons>
+                <ion-title>Register Products</ion-title>
+            </ion-toolbar>
+        </ion-header>
+        <ion-content class="ion-padding">
+            <ion-item>
+                <img id="output" src=""/>
+            </ion-item>
+            <ion-item>
+                <input id="img" (change)="showimg($event)" type="file" accept="image/*">
+                <ion-button><ion-icon name="trash"></ion-icon></ion-button>
+            </ion-item>
+            <ion-item>
+                <ion-label position="floating">
+                    Product Name
+                </ion-label>
+                <ion-input required id="nombre" type="text"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label position="floating">
+                    Stock
+                </ion-label>
+                <ion-input required id="stock" type="number"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label position="floating">
+                Price
+            </ion-label>
+                <ion-input required id="precio" type="number"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label position="floating">
+                    Precio-menudeo
+                </ion-label>
+                <ion-input required id="precio-men" type="number"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label position="floating">
+                    Precio-mayoreo
+                </ion-label>
+                <ion-input required id="precio-may" type="number"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-select multiple="false" placeholder="Categoria" [(ngModel)]="categoria" (ionChange)="selectCategoria()">
+                    <ion-select-option value="comida">Comida</ion-select-option>
+                    <ion-select-option value="ropa">Ropa</ion-select-option>
+                    <ion-select-option value="electronicos">Electronicos</ion-select-option>
+                    <ion-select-option value="papeleria">Papeleria</ion-select-option>
+                </ion-select>
+                <ion-label>{{categoria}}</ion-label>
+            </ion-item>
+            <section style="text-align: center;">
+                <ion-button size="small" class="button1" (click)="altaProducto()">Submit</ion-button>
+            </section>
+        </ion-content>
+    </div>
+</ion-app>

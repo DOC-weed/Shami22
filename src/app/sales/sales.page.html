@@ -1,0 +1,155 @@
+<ion-app>
+    <ion-menu side="start" contentId="my-content">
+        <ion-header>
+            <ion-toolbar translucent color="secondary">
+                <ion-title>Menu</ion-title>
+            </ion-toolbar>
+        </ion-header>
+        <ion-content>
+            <ion-list>
+                <ion-item (click)="openProfile()">
+                    <ion-icon name="person" slot="start"></ion-icon>
+                    <ion-label>Profile</ion-label>
+                </ion-item>
+                <ion-item href="/tabs/tab1">
+                    <ion-icon name="Home" slot="start"></ion-icon>
+                    <ion-label>Home</ion-label>
+                </ion-item>
+
+                <ion-item (click)="openSubsidiary()">
+                    <ion-icon name="compass" slot="start"></ion-icon>
+                    <ion-label>Subsidiary</ion-label>
+                </ion-item>
+
+                <ion-item (click)="openGlobal()">
+                    <ion-icon name="bookmarks" slot="start"></ion-icon>
+                    <ion-label>Report</ion-label>
+                </ion-item>
+                <ion-item href="/login">
+                    <ion-icon name="log-out" slot="start"></ion-icon>
+                    <ion-label>Logout</ion-label>
+                </ion-item>
+            </ion-list>
+        </ion-content>
+    </ion-menu>
+
+    <div class="ion-page" id="my-content">
+        <ion-header>
+            <ion-toolbar color="secondary">
+                <ion-buttons slot="start">
+                    <ion-menu-button></ion-menu-button>
+                </ion-buttons>
+                <ion-title>Sales</ion-title>
+            </ion-toolbar>
+            <ion-searchbar (ionChange)="search($event)" animated></ion-searchbar>
+        </ion-header>
+        <ion-content class="ion-padding">
+
+            <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+                <ion-fab-button (click)="openecar()" color="warning">
+                    <ion-icon  name="cart"></ion-icon>
+                </ion-fab-button>
+            </ion-fab>
+            <ion-list *ngFor="let element of comida | filtro: searchcomida" >
+                    <ion-item class="ion-text-capitalize">
+                        <div class="col-1">
+                            <img class="img" src="{{element.productos.Url2}}" alt=""/>
+                        </div>
+                        <div class="col-2">
+                            <ion-label class="ion-text-wrap">{{element.productos.Nombre}}</ion-label>
+                            <br>
+                            <ion-label class="ion-text-wrap">Departamento: Comida</ion-label>
+                            <br/>
+                            <ion-label>Precio: ${{element.productos.Precio}}</ion-label>
+                            <ion-label>Menudeo: ${{element.productos.PrecioMay}}</ion-label>
+                            <ion-label>Mayoreo: ${{element.productos.PrecioMen}}</ion-label>
+                            <br/>
+                            <ion-label>Stock: {{element.productos.Stock}} Pza(s)</ion-label>
+                        </div>
+                        <div class="col-3">
+                            <ion-button (click)="in(element.productos.Nombre, element.productos.Precio)">Agregar al carrito</ion-button>
+                        </div>
+                    </ion-item>
+            </ion-list>
+            <ion-list *ngFor="let element of ropa | filtro: searchropa" >
+                    <ion-item class="ion-text-capitalize">
+                        <div class="col-1">
+                            <img class="img" src="{{element.productos.Url2}}" alt="">
+                        </div>
+                        <div class="col-2">
+                            <ion-label class="ion-text-wrap">{{element.productos.Nombre}}</ion-label>
+                            <br>
+                            <ion-label class="ion-text-wrap">Departamento: Ropa</ion-label>
+                            <br/>
+                            <ion-label>Precio: ${{element.productos.Precio}}</ion-label>
+                            <ion-label>Menudeo: ${{element.productos.PrecioMay}}</ion-label>
+                            <ion-label>Mayoreo: ${{element.productos.PrecioMen}}</ion-label>
+                            <br/>
+                            <ion-label>Stock: {{element.productos.Stock}} Pza(s)</ion-label>
+                        </div>
+                        <div class="col-3">
+                            <ion-label>Cantidad</ion-label>
+                            <br>
+                            <ion-input type="number" [(ngModel)]="cantidad"></ion-input>
+                            <br>
+                            <ion-button></ion-button>
+                        </div>
+                    </ion-item>
+            </ion-list>
+            <ion-list *ngFor="let element of pape | filtro: searchpape" >
+
+                    <ion-item class="ion-text-capitalize">
+                        <div class="col-1">
+                            <img class="img" src="{{element.productos.Url2}}" alt="">
+                        </div>
+                        <div class="col-2">
+                            <ion-label class="ion-text-wrap">{{element.productos.Nombre}}</ion-label>
+                            <br>
+                            <ion-label class="ion-text-wrap">Departamento: Papeleria</ion-label>
+                            <br/>
+                            <ion-label>Precio: ${{element.productos.Precio}}</ion-label>
+                            <ion-label>Menudeo: ${{element.productos.PrecioMay}}</ion-label>
+                            <ion-label>Mayoreo: ${{element.productos.PrecioMen}}</ion-label>
+                            <br/>
+                            <ion-label>Stock: {{element.productos.Stock}} Pza(s)</ion-label>
+                        </div>
+                        <div class="col-3">
+                            <ion-label>Cantidad</ion-label>
+                            <br>
+                            <ion-input type="number" [(ngModel)]="cantidad"></ion-input>
+                            <br>
+                            <ion-button></ion-button>
+                        </div>
+                    </ion-item>
+            </ion-list>
+            <ion-list *ngFor="let element of electric | filtro: searchelectric" >
+                    <ion-item class="ion-text-capitalize">
+                        <div class="col-1">
+                            <img class="img" src="{{element.productos.Url2}}" alt="">
+                        </div>
+                        <div class="col-2">
+                            <ion-label class="ion-text-wrap">{{element.productos.Nombre}}</ion-label>
+                            <br>
+                            <ion-label class="ion-text-wrap">Departamento: Electronicos</ion-label>
+                            <br/>
+                            <ion-label>Precio: ${{element.productos.Precio}}</ion-label>
+                            <ion-label>Menudeo: ${{element.productos.PrecioMay}}</ion-label>
+                            <ion-label>Mayoreo: ${{element.productos.PrecioMen}}</ion-label>
+                            <br/>
+                            <ion-label>Stock: {{element.productos.Stock}} Pza(s)</ion-label>
+                        </div>
+                        <div class="col-3">
+                            <ion-label>Cantidad</ion-label>
+                            <br>
+                            <ion-input type="number" [(ngModel)]="cantidad"></ion-input>
+                            <br>
+                            <ion-button></ion-button>
+                        </div>
+                    </ion-item>
+            </ion-list>
+
+
+
+        </ion-content>
+    </div>
+</ion-app>

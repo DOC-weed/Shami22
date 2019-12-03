@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-toolbar>
+  <ion-title>Carrito:({{prod}} Productos)</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+
+  <ion-list *ngFor="let element of ventas">
+    <ion-item>
+      <ion-label>{{element.productos.Nombre}}</ion-label>
+      <ion-label>{{element.productos.Precio}}</ion-label>
+      <ion-label>{{element.productos.Cantidad}}</ion-label>
+      <ion-button (click)="eliminarprod(element.id)" color="danger"><ion-icon name="trash"></ion-icon></ion-button>
+    </ion-item>
+  </ion-list>
+  <ion-label >Total :{{total}} </ion-label>
+  <ion-button>Comprar</ion-button>
+  <ion-button (click)="eliminartabla()">Cancelar</ion-button>
+</ion-content>

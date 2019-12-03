@@ -1,0 +1,28 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title style="font-family: Arial, Helvetica, sans-serif;">Login</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <form>
+        <ion-list lines="full" class="center">
+            <ion-item>
+                <ion-label position="floating">User Name
+
+                </ion-label>
+                <ion-input required type="text"></ion-input>
+            </ion-item>
+
+            <ion-item>
+                <ion-label position="floating">Password
+                </ion-label>
+                <ion-input required type="password"></ion-input>
+            </ion-item>
+        </ion-list>
+    </form>
+    <section class="center">
+        <ion-button size="small" class="button1" (click)="Move()">Log-in</ion-button>
+    </section>
+
+</ion-content>

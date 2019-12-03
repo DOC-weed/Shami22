@@ -1,0 +1,49 @@
+<ion-app>
+<ion-menu side="start" contentId="my-content">
+    <ion-header>
+        <ion-toolbar translucent color="secondary">
+            <ion-title>Home</ion-title>
+        </ion-toolbar>
+    </ion-header>
+    <ion-content>
+        <ion-list>
+            <ion-item href="/profile">
+                <ion-icon name="person" slot="start"></ion-icon>
+                <ion-label>Profile</ion-label>
+            </ion-item>
+            <ion-item href="/subsidiary">
+                <ion-icon name="compass" slot="start"></ion-icon>
+                <ion-label>Subsidiary</ion-label>
+            </ion-item>
+            <ion-item href="/global">
+                <ion-icon name="bookmarks" slot="start"></ion-icon>
+                <ion-label>Report</ion-label>
+            </ion-item>
+            <ion-item href="/login">
+                <ion-icon name="log-out" slot="start"></ion-icon>
+                <ion-label>Logout</ion-label>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-menu>
+
+<div class="ion-page" id="my-content">
+    <ion-header>
+        <ion-toolbar color="secondary">
+            <ion-buttons slot="start">
+                <ion-menu-button></ion-menu-button>
+            </ion-buttons>
+            <ion-title>Supplier</ion-title>
+        </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding">
+        <div>
+            <div style="background-color: dimgrey;width:30%;height: 100px;float: left;">
+            </div>
+            <div style="background-color: dodgerblue;width: 70%;height: 100px;float: left;">
+            </div>
+        </div>
+    </ion-content>
+
+</div>
+</ion-app>
