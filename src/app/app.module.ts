@@ -29,6 +29,7 @@ import {AngularFireAuthModule} from "@angular/fire/auth";
 import {EditPageModule} from "./edit/edit/edit.module";
 import {AddprovPageModule} from "./addprov/addprov.module";
 
+import {CallNumber} from '@ionic-native/call-number/ngx';
 
 @NgModule({
   declarations: [AppComponent],
@@ -41,7 +42,7 @@ import {AddprovPageModule} from "./addprov/addprov.module";
     CarritoService,
     StatusBar,
     SplashScreen,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, File, FileOpener
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, File, FileOpener, CallNumber
   ],
   bootstrap: [AppComponent]
 })
