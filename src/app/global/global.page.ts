@@ -19,19 +19,22 @@ export class GlobalPage implements OnInit {
 
   pdfObj = null;
   data: any[];
-  ID = '';
+  ID1 = '';
   productoC = '';
   UnidadesC = '';
   precioC = '';
 
+  ID2 = '';
   productoE = '';
   UnidadesE = '';
   precioE = '';
 
+  ID3 = '';
   productoP = '';
   UnidadesP = '';
   precioP = '';
 
+  ID4 = '';
   productoR = '';
   UnidadesR = '';
   precioR = '';
@@ -64,12 +67,12 @@ export class GlobalPage implements OnInit {
       }
       for (const cont of this.data) {
         if (cont.comida.Stock < 5) {
-          this.ID = this.ID + cont.id + '\n';
+          this.ID1 = this.ID1 + cont.id + '\n';
           this.productoC = this.productoC + cont.comida.Nombre;
           this.UnidadesC = this.UnidadesC + cont.comida.Stock + ' -- !!!!PRODUCTO APUNTO DE AGOTARSE!!!!' + '\n';
           this.precioC = this.precioC + cont.comida.Precio + '\n';
         } else {
-          this.ID = this.ID + cont.id + '\n';
+          this.ID1 = this.ID1 + cont.id + '\n';
           this.productoC = this.productoC + cont.comida.Nombre + '\n';
           this.UnidadesC = this.UnidadesC + cont.comida.Stock + '\n';
           this.precioC = this.precioC + cont.comida.Precio + '\n';
@@ -96,16 +99,16 @@ export class GlobalPage implements OnInit {
       }
       for (const cont2 of this.data) {
         if (cont2.electronico.Stock < 5) {
-          this.ID = this.ID + cont2.id + '\n';
+          this.ID2 = this.ID2 + cont2.id + '\n';
           this.productoE = this.productoE + cont2.electronico.Nombre + '\n';
           this.UnidadesE = this.UnidadesE + cont2.electronico.Stock + ' -- !!!!PRODUCTO APUNTO DE AGOTARSE!!!!' + '\n';
           this.precioE = this.precioE + 'Precio: ' + cont2.electronico.Precio + '\n';
         } else {
-          this.ID = this.ID + cont2.id + '\n';
+          this.ID2 = this.ID2 + cont2.id + '\n';
           this.productoE = this.productoE + cont2.electronico.Nombre + '\n';
           this.UnidadesE = this.UnidadesE + cont2.electronico.Stock + '\n';
           this.precioE = this.precioE + cont2.electronico.Precio + '\n';
-          }
+        }
       }
     });
 
@@ -128,12 +131,12 @@ export class GlobalPage implements OnInit {
       }
       for (const cont3 of this.data) {
         if (cont3.papeleria.Stock < 5) {
-          this.ID = this.ID + cont3.id + '\n';
+          this.ID3 = this.ID3 + cont3.id + '\n';
           this.productoP = this.productoP + cont3.papeleria.Nombre + '\n';
           this.UnidadesP = this.UnidadesP + cont3.papeleria.Stock + ' -- !!!!PRODUCTO APUNTO DE AGOTARSE!!!!' + '\n';
           this.precioP = this.precioP + 'Precio: ' + cont3.papeleria.Precio + '\n';
         } else {
-          this.ID = this.ID + cont3.id + '\n';
+          this.ID3 = this.ID3 + cont3.id + '\n';
           this.productoP = this.productoP + cont3.papeleria.Nombre + '\n';
           this.UnidadesP = this.UnidadesP + cont3.papeleria.Stock + '\n';
           this.precioP = this.precioP + cont3.papeleria.Precio + '\n';
@@ -160,12 +163,12 @@ export class GlobalPage implements OnInit {
       }
       for (const cont4 of this.data) {
         if (cont4.ropa.Stock < 5) {
-          this.ID = this.ID + cont4.id + '\n';
+          this.ID4 = this.ID4 + cont4.id + '\n';
           this.productoR = this.productoR + cont4.ropa.Nombre + '\n';
           this.UnidadesR = this.UnidadesR + cont4.ropa.Stock + ' -- !!!!PRODUCTO APUNTO DE AGOTARSE!!!!' + '\n';
           this.precioR = this.precioR + 'Precio: ' + cont4.ropa.Precio + '\n';
         } else {
-          this.ID = this.ID + cont4.id + '\n';
+          this.ID4 = this.ID4 + cont4.id + '\n';
           this.productoR = this.productoR + cont4.ropa.Nombre + '\n';
           this.UnidadesR = this.UnidadesR + cont4.ropa.Stock + '\n';
           this.precioR = this.precioR + cont4.ropa.Precio + '\n';
@@ -183,12 +186,12 @@ export class GlobalPage implements OnInit {
         {text: date.getDate() + '/' + (new Date().getMonth() + 1) + '/' + date.getFullYear(), alignment: 'right'},
         {
           table: {
-                body: [
-                  ['ID', 'Producto', 'Unidades en Stock', 'Precio'],
-                  [this.ID, this.productoC, this.UnidadesC, this.precioC]
-                ]
-              }
-    },
+            body: [
+              ['ID', 'Producto', 'Unidades en Stock', 'Precio'],
+              [this.ID1, this.productoC, this.UnidadesC, this.precioC]
+            ]
+          }
+        },
       ],
       styles: {
         header: {
@@ -219,7 +222,7 @@ export class GlobalPage implements OnInit {
           table: {
             body: [
               ['ID', 'Producto', 'Unidades en Stock', 'Precio'],
-              [this.ID, this.productoE, this.UnidadesE, this.precioE]
+              [this.ID2, this.productoE, this.UnidadesE, this.precioE]
             ]
           }
         },
@@ -255,7 +258,7 @@ export class GlobalPage implements OnInit {
           table: {
             body: [
               ['ID', 'Producto', 'Unidades en Stock', 'Precio'],
-              [this.ID, this.productoP, this.UnidadesP, this.precioP]
+              [this.ID3, this.productoP, this.UnidadesP, this.precioP]
             ]
           }
         },
@@ -290,7 +293,7 @@ export class GlobalPage implements OnInit {
           table: {
             body: [
               ['ID', 'Producto', 'Unidades en Stock', 'Precio'],
-              [this.ID, this.productoR, this.UnidadesR, this.precioR]
+              [this.ID4, this.productoR, this.UnidadesR, this.precioR]
             ]
           }
         },
@@ -313,4 +316,3 @@ export class GlobalPage implements OnInit {
     }
   }
 }
-
