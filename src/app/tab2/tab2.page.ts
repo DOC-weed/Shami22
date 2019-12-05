@@ -1,7 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {AngularFirestore} from "@angular/fire/firestore";
 import {AngularFireStorage} from "@angular/fire/storage";
-import {AlertController} from "@ionic/angular";
+import {AlertController, PopoverController} from "@ionic/angular";
+import {EditPage} from "../edit/edit/edit.page";
 
 @Component({
   selector: 'app-tab2',
@@ -19,7 +20,8 @@ export class Tab2Page implements OnInit {
   searchpape='';
 
 
-  constructor(private db: AngularFirestore, private storage: AngularFireStorage, private AlertCtrl: AlertController) {
+  constructor(private db: AngularFirestore, private storage: AngularFireStorage, private AlertCtrl: AlertController,
+              private PopCtrl: PopoverController) {
   }
   ngOnInit() {
     this.showComida();
@@ -103,82 +105,49 @@ export class Tab2Page implements OnInit {
       }
     });
   }
-  async updatecliente1(id, url) {
-    const alert = await this.AlertCtrl.create({
-      message: '¿Esta seguro de eliminar el producto?',
-      buttons: [
-        {text: 'Cancelar',
-          role: 'Cancel',
-          handler: blah => {
-            console.log('confirm cancel: blah');
-          }},
-        {text: 'Confirmar',
-          handler: () => {
-            console.log(url);
-            this.db.collection('Comida').doc(id).delete();
-            this.storage.ref(url).delete();
-          }}
-      ],
+  async updatecliente1(element, url, dep) {
+    const popo = await this.PopCtrl.create({
+      component: EditPage,
+      backdropDismiss: true,
+        componentProps: {id: element, image: url, depa: dep},
     });
-    return alert.present();
+    return popo.present();
+   /* popo.onDidDismiss().then(() => {
+        this.showComida();
+    }).catch(() => {
+        console.log('hubo un error');
+    });
+
+    */
   }
-  async updatecliente2(id, url) {
-    const alert = await this.AlertCtrl.create({
-      message: '¿Esta seguro de eliminar el producto?',
-      buttons: [
-        {text: 'Cancelar',
-          role: 'Cancel',
-          handler: blah => {
-            console.log('confirm cancel: blah');
-          }},
-        {text: 'Confirmar',
-          handler: () => {
-            console.log(url);
-            this.db.collection('Ropa').doc(id).delete();
-            this.storage.ref(url).delete();
-          }}
-      ],
+  /* async updatecliente2(id, url) {
+    const popo = await this.PopCtrl.create({
+      component: EditPage,
+      backdropDismiss: true,
+      componentProps: { id: id, image: url},
     });
-    return alert.present();
+    return popo.present();
   }
-  async updatecliente3(id, url) {
-    const alert = await this.AlertCtrl.create({
-      message: '¿Esta seguro de eliminar el producto?',
-      buttons: [
-        {text: 'Cancelar',
-          role: 'Cancel',
-          handler: blah => {
-            console.log('confirm cancel: blah');
-          }},
-        {text: 'Confirmar',
-          handler: () => {
-            console.log(url);
-            this.db.collection('Papeleria').doc(id).delete();
-            this.storage.ref(url).delete();
-          }}
-      ],
+   async updatecliente3(id, url) {
+    const popo = await this.PopCtrl.create({
+      component: EditPage,
+      backdropDismiss: true,
+      componentProps: { id: id, image: url},
     });
-    return alert.present();
+    return popo.present();
   }
   async updatecliente4(id, url) {
-    const alert = await this.AlertCtrl.create({
-      message: '¿Esta seguro de eliminar el producto?',
-      buttons: [
-        {text: 'Cancelar',
-          role: 'Cancel',
-          handler: blah => {
-            console.log('confirm cancel: blah');
-          }},
-        {text: 'Confirmar',
-          handler: () => {
-            console.log(url);
-            this.db.collection('Electronicos').doc(id).delete();
-            this.storage.ref(url).delete();
-          }}
-      ],
+    const popo = await this.PopCtrl.create({
+      component: EditPage,
+      backdropDismiss: true,
+      componentProps: {id: id, image: url},
     });
-    return alert.present();
+    return popo.present();
   }
+
+
+   */
+
   search(event) {
     this.searchcomida = event.detail.value;
     this.searchelectric = event.detail.value;

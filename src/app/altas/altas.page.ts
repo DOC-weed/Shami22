@@ -41,7 +41,7 @@ export class AltasPage {
     const stock = parseInt((document.getElementById('stock') as HTMLIonInputElement).value);
     const pricemen = parseInt((document.getElementById('precio-men') as HTMLIonInputElement).value);
     const pricemay = parseInt((document.getElementById('precio-may') as HTMLIonInputElement).value);
-    this.producto = {Nombre: name, Precio: price, Url: filepath, Stock: stock, PrecioMen: pricemen, PrecioMay: pricemay};
+    this.producto = {Nombre: name, Precio: price, Url: filepath, Stock: stock, PrecioMen: pricemen, PrecioMay: pricemay, Departamento: this.categoria};
     this.database.collection(this.categoria).add(this.producto);
     this.addProduct();
     const name1 = (document.getElementById('nombre') as HTMLIonInputElement);

@@ -24,8 +24,9 @@ export class SalesPage implements OnInit {
   searchpape='';
   cantidad = 0;
   cant=0;
+  canti= 0;
   constructor(private ModCtrl: ModalController, private db: AngularFirestore, private storage: AngularFireStorage,
-              private PoptCtrl: PopoverController, private carservice: CarritoService) { }
+              private PoptCtrl: PopoverController, private carservice: CarritoService, private Alert: AlertController) { }
 
   ngOnInit() {
     this.showComida();
@@ -133,12 +134,16 @@ export class SalesPage implements OnInit {
     this.searchpape = event.detail.value;
     this.searchropa = event.detail.value;
   }
-  in(nombre, precio) {
-    this.db.collection('Ventas').add({
-      Nombre: nombre,
-      Precio: precio,
-      Cantidad: 1
-    });
+  in(nombre, precio, stock) {
+    if (stock < this.canti) {
+      this.insu();
+    }else {
+      this.db.collection('Ventas').add({
+        Nombre: nombre,
+        Precio: precio,
+        Cantidad: this.canti
+      });
+    }
    // console.log(id);
   }
   async openecar() {
@@ -147,4 +152,12 @@ export class SalesPage implements OnInit {
     });
     await popo.present();
   }
+  async insu() {
+    const alert = await this.Alert.create({
+      message:'Productos insuficientes',
+      buttons: ['OK'],
+    });
+    alert.present();
+  }
+
 }

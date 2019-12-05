@@ -33,16 +33,32 @@
             <ion-buttons slot="start">
                 <ion-menu-button></ion-menu-button>
             </ion-buttons>
-            <ion-title>Supplier</ion-title>
+            <ion-title>Proveedores</ion-title>
         </ion-toolbar>
+        <ion-searchbar></ion-searchbar>
     </ion-header>
     <ion-content class="ion-padding">
-        <div>
-            <div style="background-color: dimgrey;width:30%;height: 100px;float: left;">
-            </div>
-            <div style="background-color: dodgerblue;width: 70%;height: 100px;float: left;">
-            </div>
-        </div>
+        <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+            <ion-fab-button (click)="addprov()" color="warning">
+                <ion-icon  name="add"></ion-icon>
+            </ion-fab-button>
+        </ion-fab>
+       <ion-list *ngFor="let item of provers">
+           <ion-item>
+               <div>
+                   <img src="{{item.datos.Url}}" alt=""/>
+               </div>
+               <div>
+                   <ion-label>{{item.datos.Nombre}}</ion-label>
+                   <ion-label>{{item.datos.RFC}}</ion-label>
+               </div>
+               <div>
+                   <ion-label>Tel: {{item.data.Telefono}}</ion-label>
+                   <ion-button>llamar</ion-button>
+               </div>
+           </ion-item>
+       </ion-list>
+
     </ion-content>
 
 </div>

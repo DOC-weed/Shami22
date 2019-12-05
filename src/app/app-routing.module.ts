@@ -2,7 +2,8 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  {
+  {path:'', redirectTo:'login', pathMatch:'full'},
+    {
     path: '',
     loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)},
   { path: 'altas', loadChildren: './altas/altas.module#AltasPageModule' },
@@ -12,8 +13,11 @@ const routes: Routes = [
   { path: 'global', loadChildren: './global/global.module#GlobalPageModule' },
   { path: 'subsidiary', loadChildren: './subsidiary/subsidiary.module#SubsidiaryPageModule' },
   { path: 'sales', loadChildren: './sales/sales.module#SalesPageModule' },
-  { path: 'profile', loadChildren: './profile/profile.module#ProfilePageModule' },  { path: 'bajas', loadChildren: './bajas/bajas.module#BajasPageModule' },
-  { path: 'car', loadChildren: './car/car.module#CarPageModule' }
+  { path: 'profile', loadChildren: './profile/profile.module#ProfilePageModule' },
+  { path: 'bajas', loadChildren: './bajas/bajas.module#BajasPageModule' },
+  { path: 'car', loadChildren: './car/car.module#CarPageModule' },  { path: 'edit', loadChildren: './edit/edit/edit.module#EditPageModule' },
+  { path: 'addprov', loadChildren: './addprov/addprov.module#AddprovPageModule' }
+
 
 
 ];

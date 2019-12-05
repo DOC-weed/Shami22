@@ -39,16 +39,6 @@ const routes: Routes = [
         ]
       },
       {
-        path: 'sales',
-        children: [
-          {
-            path: '',
-            loadChildren: () =>
-                import('../sales/sales.module').then(m => m.SalesPageModule)
-          }
-        ]
-      },
-      {
         path: '',
         redirectTo: '/tabs/tab1',
         pathMatch: 'full'

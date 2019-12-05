@@ -39,6 +39,9 @@ export class BajasPage implements OnInit {
           id: e.payload.doc.id,
           productos: e.payload.doc.data()
         };
+
+
+
       });
       console.log(this.comida);
       for (const producto of this.comida) {

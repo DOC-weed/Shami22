@@ -26,17 +26,17 @@ getcarrito() {
         productos: e.payload.doc.data()
       };
     });
-    console.log(this.ventas);
-
     for (const producto of this.ventas) {
-      this.total = this.total + producto.productos.Precio;
-      this.prod = this.prod + producto.productos.Cantidad;
-    }
+          this.total = + producto.productos.Precio;
+          this.prod = + producto.productos.Cantidad;
+
+        }
+    console.log(this.ventas);
   }
   ); }
   eliminarprod(id) {
     this.db.collection('Ventas').doc(id).delete();
-    location.assign('/car.page.ts');
+    this.getcarrito();
   }
   async eliminartabla() {
     const alert = await this.AlertCtrl.create({

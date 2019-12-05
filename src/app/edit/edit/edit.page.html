@@ -1,0 +1,32 @@
+<ion-content>
+  <ion-item>
+    <img id="output" src="{{img}}" alt=""/>
+  </ion-item>
+<ion-item>
+  <ion-label>imagen</ion-label>
+  <input (change)="getImg($event)" accept="image/*" type="file"/>
+</ion-item>
+  <ion-item>
+    <ion-label>Nombre:</ion-label>
+    <ion-input type="text" [(ngModel)]="nombre"></ion-input>
+  </ion-item>
+<ion-item>
+  <ion-label>Precio:</ion-label>
+  <ion-input type="number" [(ngModel)]="precio"></ion-input>
+</ion-item>
+<ion-item>
+  <ion-label>Precio-Men:</ion-label>
+  <ion-input type="number" [(ngModel)]="preciomin"></ion-input>
+</ion-item>
+<ion-item>
+  <ion-label>Precio-May:</ion-label>
+  <ion-input type="number" [(ngModel)]="preciomay"></ion-input>
+</ion-item>
+  <ion-item>
+    <ion-label>Stock:</ion-label>
+    <ion-input type="number" [(ngModel)]="stock"></ion-input>
+  </ion-item>
+  <ion-button (click)="updatedata()" expand="full">actualizar</ion-button>
+  <ion-button (click)="dismiss()" expand="full">cancelar</ion-button>
+
+</ion-content>
